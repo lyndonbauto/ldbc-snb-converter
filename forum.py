@@ -4,7 +4,7 @@ import converter
 # input csv header: id|title|creationDate
 # output csv header: ~id,title,creationDate
 def forum(input_file_path, output_file_path):
-    converter.convert_vertex(input_file_path, output_file_path)
+    converter.convert_vertex(input_file_path, output_file_path, "Forum")
 
 
 # input csv header: Forum.id|Post.id

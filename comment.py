@@ -4,7 +4,7 @@ import converter
 # input csv header: id|creationDate|locationIP|browserUsed|content|length
 # output csv header: ~id,creationDate,locationIP,browserUsed,content,length
 def comment(input_file_path, output_file_path):
-    converter.convert_vertex(input_file_path, output_file_path)
+    converter.convert_vertex(input_file_path, output_file_path, "Comment")
 
 # input csv header: Comment.id|Person.id
 # output csv header: ~id,~from,~to

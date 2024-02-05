@@ -5,7 +5,7 @@ import converter
 # output csv header: ~id,creationDate,locationIP,browserUsed,content,length
 
 def tag(input_file_path, output_file_path):
-    converter.convert_vertex(input_file_path, output_file_path)
+    converter.convert_vertex(input_file_path, output_file_path, "Tag")
 
 
 # input csv header: Tag.id|TagClass.id

@@ -1,6 +1,5 @@
 import multiprocessing
 import time
-from threading import Event
 import threading
 from multiprocessing.pool import ThreadPool
 import os
@@ -42,6 +41,7 @@ class ProcessQueue:
         for f in self.__futures:
             f.wait()
         return self.__failures
+
 
     def submit(self, edge_mapping, vertex_mapping, filename, path, output_directory):
         self.__futures = [future for future in self.__futures if not future.ready()]

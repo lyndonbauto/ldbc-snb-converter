@@ -1,6 +1,7 @@
 import sys
 import os
 import mappings
+import time
 from process_queue import ProcessQueue
 
 
@@ -29,6 +30,7 @@ def process_files(input_directory, output_directory):
 
 
 def main(argv):
+    start = time.time()
     input_directory = argv[1]
     output_directory = argv[2]
 
@@ -43,6 +45,7 @@ def main(argv):
         os.makedirs(output_directory + "/edge")
 
     process_files(input_directory, output_directory)
+    print("Total processing time " + str(time.time() - start) + " seconds")
 
 
 if __name__ == "__main__":

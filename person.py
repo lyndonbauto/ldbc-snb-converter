@@ -3,14 +3,16 @@ import converter
 
 # input csv header: id|firstName|lastName|gender|birthday|creationDate|locationIP|browserUsed|place
 # output csv header: ~id,firstName,lastName,gender,birthday,creationDate,locationIP,browserUsed,place
+
+# There is a weird setup here where Person has property language and property email address, both can have many entries
+# and for some reason exist in different files with multiple entries.
 def person(input_file_path, output_file_path):
-    converter.convert_vertex(input_file_path, output_file_path)
+    other_file_prefixs = {"person_email_emailaddress": "email", "person_speaks_language": "language"}
+    converter.convert_vertex_with_concatenation(input_file_path, output_file_path, other_file_prefixs, "Person")
 
 
-# input csv header: Person.id|Email.id
-# output csv header: ~id,~from,~to
-def person_email_emailaddress(input_file_path, output_file_path):
-    converter.convert_edge(input_file_path, output_file_path, "Person.id", "Email.id", "email")
+def person_noop(input_file_path, output_file_path):
+    pass
 
 
 # input csv header: Person.id|Tag.id
@@ -41,12 +43,6 @@ def person_likes_comment(input_file_path, output_file_path):
 # output csv header: ~id,~from,~to
 def person_likes_post(input_file_path, output_file_path):
     converter.convert_edge(input_file_path, output_file_path, "Person.id", "Post.id", "likes")
-
-
-# input csv header: Person.id|Language.id
-# output csv header: ~id,~from,~to
-def person_speaks_language(input_file_path, output_file_path):
-    converter.convert_edge(input_file_path, output_file_path, "Person.id", "Language.id", "speaks")
 
 
 # input csv header: Person.id|Organisation.id

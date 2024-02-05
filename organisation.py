@@ -4,7 +4,7 @@ import converter
 # input csv header: id|name|type
 # output csv header: ~id,name,type
 def organisation(input_file_path, output_file_path):
-    converter.convert_vertex(input_file_path, output_file_path)
+    converter.convert_vertex(input_file_path, output_file_path, "Organisation")
 
 
 # input csv header: Organisation.id|Place.id
